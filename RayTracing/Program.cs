@@ -1,6 +1,9 @@
-﻿namespace RayTracing {
+﻿using System.Threading.Tasks;
+
+namespace RayTracing {
     internal static class Program {
-        private static void Main() {
+        private static Task Main() {
+            return Task.CompletedTask;
         }
     }
 }
