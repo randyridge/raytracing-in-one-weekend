@@ -18,5 +18,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="RandyRidge.Common" Version="0.1.2" />
   </ItemGroup>
 </Project>
