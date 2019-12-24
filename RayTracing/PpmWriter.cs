@@ -31,17 +31,5 @@ namespace RayTracing {
                 writer.Write('\n');
             }
         }
-
-        public static void WriteOld(Stream stream, IEnumerable<Color> colors, int width, int height) {
-            Guard.NotNull(stream, nameof(stream));
-            colors = Guard.NotNull(colors, nameof(colors));
-            Guard.MinimumInclusive(width, 1, nameof(width));
-            Guard.MinimumInclusive(height, 1, nameof(height));
-            using var streamWriter = new StreamWriter(stream, Encoding.ASCII, -1, true);
-            streamWriter.Write($"P3\n {width} {height}\n255\n");
-            foreach(var color in colors) {
-                streamWriter.Write($"{color.Red} {color.Green} {color.Blue}\n");
-            }
-        }
     }
 }

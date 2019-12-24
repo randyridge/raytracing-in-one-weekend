@@ -23,9 +23,6 @@ namespace RayTracing {
         [Benchmark]
         public void Write() => PpmWriter.Write(memoryStream, Colors, Width, Height);
 
-        [Benchmark]
-        public void WriteOld() => PpmWriter.WriteOld(memoryStream, Colors, Width, Height);
-
         private static List<Color> BuildColors() {
             var result = new List<Color>(Width * Height);
             Span<byte> bytes = new byte[Width * Height * 3];
