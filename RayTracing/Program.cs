@@ -7,7 +7,7 @@ namespace RayTracing {
 
         private static void Main() {
             using var standardOut = Console.OpenStandardOutput();
-            Chapter02.Run(standardOut, Width, Height);
+            Chapter03.Run(standardOut, Width, Height);
         }
     }
 }
