@@ -1,0 +1,14 @@
+﻿// * Summary *
+
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.19536
+Intel Core i7-2600K CPU 3.40GHz (Sandy Bridge), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=3.1.100
+  [Host]     : .NET Core 3.1.0 (CoreCLR 4.700.19.56402, CoreFX 4.700.19.56404), X64 RyuJIT
+  Job-QJPJKP : .NET Core 3.1.0 (CoreCLR 4.700.19.56402, CoreFX 4.700.19.56404), X64 RyuJIT
+
+Jit=RyuJit  Runtime=.NET Core 3.1
+
+|            Method |     Mean |     Error |    StdDev |    StdErr |      Min |       Q1 |   Median |       Q3 |      Max |  Op/s | Ratio |    Gen 0 |    Gen 1 |    Gen 2 | Allocated |
+|------------------ |---------:|----------:|----------:|----------:|---------:|---------:|---------:|---------:|---------:|------:|------:|---------:|---------:|---------:|----------:|
+| Chapter02Baseline | 5.204 ms | 0.0475 ms | 0.0444 ms | 0.0115 ms | 5.147 ms | 5.165 ms | 5.194 ms | 5.245 ms | 5.273 ms | 192.1 |  1.00 | 617.1875 | 117.1875 | 117.1875 |   2.76 MB |
+

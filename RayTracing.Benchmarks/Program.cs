@@ -3,7 +3,7 @@
 namespace RayTracing {
     internal static class Program {
         private static void Main() {
-            //BenchmarkRunner.Run<>();
+            BenchmarkRunner.Run<Chapter02Benchmark>();
         }
     }
 }
