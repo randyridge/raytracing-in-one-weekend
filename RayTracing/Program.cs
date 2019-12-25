@@ -6,9 +6,10 @@ namespace RayTracing {
         private const int Width = 200;
 
         private static void Main() {
-            var buffer = Chapter03.Run(Width, Height);
+            var frame = new Frame(Width, Height);
+            Chapter03.FillFrame(frame);
             using var standardOut = Console.OpenStandardOutput();
-            PpmWriter.Write(standardOut, buffer.ToArray(), Width, Height);
+            PpmWriter.Write(standardOut, frame);
         }
     }
 }

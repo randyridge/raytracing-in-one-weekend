@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using BenchmarkDotNet.Attributes;
 using SharpSharp.Benchmarks;
@@ -9,10 +8,11 @@ namespace RayTracing {
     public class PpmWriterBenchmarks : IDisposable {
         private const int Height = 100;
         private const int Width = 200;
-        private static readonly List<Color> Colors = BuildColors();
+        private readonly Frame frame;
         private readonly MemoryStream memoryStream;
 
         public PpmWriterBenchmarks() {
+            frame = BuildFrame();
             memoryStream = new MemoryStream();
         }
 
@@ -21,20 +21,20 @@ namespace RayTracing {
         }
 
         [Benchmark]
-        public void Write() => PpmWriter.Write(memoryStream, Colors, Width, Height);
+        public void PpmWriter_Write() => PpmWriter.Write(memoryStream, frame);
 
-        private static List<Color> BuildColors() {
-            var result = new List<Color>(Width * Height);
+        private static Frame BuildFrame() {
+            var frame = new Frame(Width, Height);
             Span<byte> bytes = new byte[Width * Height * 3];
             var random = new Random();
             random.NextBytes(bytes);
             var b = 0;
             for(var i = 0; i < Width * Height; i++) {
-                result.Add(new Color(bytes[b], bytes[b + 1], bytes[b + 2]));
+                frame.AddColor(new Color(bytes[b], bytes[b + 1], bytes[b + 2]));
                 b += 3;
             }
 
-            return result;
+            return frame;
         }
     }
 }
