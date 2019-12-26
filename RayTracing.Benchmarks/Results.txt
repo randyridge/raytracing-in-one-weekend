@@ -8,15 +8,11 @@ Intel Core i7-2600K CPU 3.40GHz (Sandy Bridge), 1 CPU, 8 logical and 4 physical 
 
 Jit=RyuJit  Runtime=.NET Core 3.1
 
-Chapter02:
 |              Method |     Mean |   Error |  StdDev |  StdErr |      Min |       Q1 |   Median |       Q3 |      Max |    Op/s | Gen 0 | Gen 1 | Gen 2 | Allocated |
 |-------------------- |---------:|--------:|--------:|--------:|---------:|---------:|---------:|---------:|---------:|--------:|------:|------:|------:|----------:|
-| Chapter02_FillFrame | 134.6 us | 1.33 us | 1.11 us | 0.31 us | 133.0 us | 134.0 us | 134.4 us | 135.2 us | 137.3 us | 7,428.7 |     - |     - |     - |         - |
-
-Chapter04:
-|              Method |     Mean |   Error |  StdDev |  StdErr |      Min |       Q1 |   Median |       Q3 |      Max |    Op/s | Gen 0 | Gen 1 | Gen 2 | Allocated |
-|-------------------- |---------:|--------:|--------:|--------:|---------:|---------:|---------:|---------:|---------:|--------:|------:|------:|------:|----------:|
-| Chapter04_FillFrame | 588.3 us | 3.56 us | 3.15 us | 0.84 us | 584.6 us | 585.5 us | 587.1 us | 590.9 us | 593.6 us | 1,699.9 |     - |     - |     - |       1 B |
+| Chapter02_FillFrame | 133.4 us | 0.92 us | 0.72 us | 0.21 us | 132.4 us | 132.8 us | 133.4 us | 133.9 us | 134.6 us | 7,496.9 |     - |     - |     - |         - |
+| Chapter04_FillFrame | 588.3 us | 2.72 us | 2.41 us | 0.64 us | 584.6 us | 587.2 us | 588.0 us | 589.2 us | 593.3 us | 1,699.7 |     - |     - |     - |       1 B |
+| Chapter05_FillFrame | 746.6 us | 4.95 us | 4.38 us | 1.17 us | 737.6 us | 743.2 us | 747.3 us | 749.5 us | 754.3 us | 1,339.4 |     - |     - |     - |       1 B |
 
 PpmWriter:
 |          Method |     Mean |     Error |    StdDev |    StdErr |      Min |       Q1 |   Median |       Q3 |      Max |  Op/s |    Gen 0 | Gen 1 | Gen 2 | Allocated |

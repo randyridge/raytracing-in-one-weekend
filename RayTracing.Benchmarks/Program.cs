@@ -5,7 +5,7 @@ namespace RayTracing {
     internal static class Program {
         private static void Main() {
             //BenchmarkRunner.Run(Assembly.GetAssembly(typeof(Program)));
-            BenchmarkRunner.Run<Chapter04Benchmarks>();
+            BenchmarkRunner.Run<ChapterBenchmarks>();
         }
     }
 }
