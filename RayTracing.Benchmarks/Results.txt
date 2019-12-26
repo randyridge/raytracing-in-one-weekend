@@ -8,13 +8,14 @@ Intel Core i7-2600K CPU 3.40GHz (Sandy Bridge), 1 CPU, 8 logical and 4 physical 
 
 Jit=RyuJit  Runtime=.NET Core 3.1
 
-|               Method |       Mean |    Error |   StdDev |  StdErr |        Min |         Q1 |     Median |         Q3 |        Max |    Op/s | Gen 0 | Gen 1 | Gen 2 | Allocated |
-|--------------------- |-----------:|---------:|---------:|--------:|-----------:|-----------:|-----------:|-----------:|-----------:|--------:|------:|------:|------:|----------:|
-|  Chapter02_FillFrame |         NA |       NA |       NA |      NA |         NA |         NA |         NA |         NA |         NA |      NA |     - |     - |     - |         - |
-|  Chapter04_FillFrame |   587.3 us |  6.42 us |  5.70 us | 1.52 us |   576.7 us |   584.1 us |   587.0 us |   591.6 us |   594.8 us | 1,702.6 |     - |     - |     - |       1 B |
-|  Chapter05_FillFrame |   716.6 us |  4.75 us |  4.21 us | 1.13 us |   708.4 us |   715.7 us |   716.7 us |   720.2 us |   723.5 us | 1,395.5 |     - |     - |     - |       1 B |
-| Chapter06a_FillFrame |   866.5 us |  6.54 us |  5.46 us | 1.51 us |   857.0 us |   862.8 us |   866.6 us |   870.0 us |   875.6 us | 1,154.1 |     - |     - |     - |       1 B |
-| Chapter06b_FillFrame | 1,740.8 us | 14.68 us | 13.01 us | 3.48 us | 1,720.4 us | 1,729.8 us | 1,741.6 us | 1,751.7 us | 1,759.0 us |   574.4 |     - |     - |     - |     201 B |
+|               Method |         Mean |       Error |      StdDev |      StdErr |          Min |           Q1 |       Median |           Q3 |          Max |      Op/s | Gen 0 | Gen 1 | Gen 2 | Allocated |
+|--------------------- |-------------:|------------:|------------:|------------:|-------------:|-------------:|-------------:|-------------:|-------------:|----------:|------:|------:|------:|----------:|
+|  Chapter02_FillFrame |           NA |          NA |          NA |          NA |           NA |           NA |           NA |           NA |           NA |        NA |     - |     - |     - |         - |
+|  Chapter04_FillFrame |     609.1 us |     9.25 us |     8.20 us |     2.19 us |     595.8 us |     605.9 us |     608.6 us |     614.7 us |     627.5 us | 1,641.714 |     - |     - |     - |       1 B |
+|  Chapter05_FillFrame |     754.9 us |    14.16 us |    15.15 us |     3.57 us |     738.4 us |     745.2 us |     750.5 us |     760.1 us |     793.4 us | 1,324.614 |     - |     - |     - |         - |
+| Chapter06a_FillFrame |     897.9 us |    13.07 us |    11.59 us |     3.10 us |     868.4 us |     894.2 us |     897.9 us |     903.2 us |     919.8 us | 1,113.740 |     - |     - |     - |       1 B |
+| Chapter06b_FillFrame |   1,817.6 us |    57.45 us |    47.97 us |    13.30 us |   1,769.3 us |   1,790.2 us |   1,807.1 us |   1,824.4 us |   1,952.5 us |   550.176 |     - |     - |     - |     201 B |
+|  Chapter07_FillFrame | 197,340.8 us | 5,182.37 us | 4,327.52 us | 1,200.24 us | 189,540.8 us | 195,407.4 us | 196,814.8 us | 198,113.1 us | 208,439.9 us |     5.067 |     - |     - |     - |     272 B |
 
 PpmWriter:
 |          Method |     Mean |     Error |    StdDev |    StdErr |      Min |       Q1 |   Median |       Q3 |      Max |  Op/s |    Gen 0 | Gen 1 | Gen 2 | Allocated |

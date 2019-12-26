@@ -30,6 +30,12 @@ namespace RayTracing {
             : channel >= 1.0f ? (byte) 255
             : Math.Min((byte) (256.0f * channel), (byte) 255);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Color operator +(Color left, Color right) => new Color(left.Red + right.Red, left.Green + right.Green, left.Blue + right.Blue);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Color operator /(Color left, float scalar) => new Color(left.Red / scalar, left.Green / scalar, left.Blue / scalar);
+
         public static bool operator ==(Color left, Color right) => left.Equals(right);
 
         public static bool operator !=(Color left, Color right) => !left.Equals(right);

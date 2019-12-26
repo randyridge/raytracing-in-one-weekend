@@ -26,8 +26,7 @@ namespace RayTracing {
         private static Frame BuildFrame() {
             var frame = new Frame(Width, Height);
             Span<byte> bytes = new byte[Width * Height * 3];
-            var random = new Random();
-            random.NextBytes(bytes);
+            Random.NextBytes(bytes);
             var b = 0;
             for(var i = 0; i < Width * Height; i++) {
                 frame.AddColor(new Color(bytes[b], bytes[b + 1], bytes[b + 2]));
