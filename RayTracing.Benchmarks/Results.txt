@@ -16,7 +16,7 @@ Chapter02:
 Chapter04:
 |              Method |     Mean |   Error |  StdDev |  StdErr |      Min |       Q1 |   Median |       Q3 |      Max |    Op/s | Gen 0 | Gen 1 | Gen 2 | Allocated |
 |-------------------- |---------:|--------:|--------:|--------:|---------:|---------:|---------:|---------:|---------:|--------:|------:|------:|------:|----------:|
-| Chapter04_FillFrame | 631.1 us | 4.16 us | 3.69 us | 0.99 us | 626.0 us | 627.9 us | 630.6 us | 633.0 us | 639.4 us | 1,584.6 |     - |     - |     - |       1 B |
+| Chapter04_FillFrame | 588.3 us | 3.56 us | 3.15 us | 0.84 us | 584.6 us | 585.5 us | 587.1 us | 590.9 us | 593.6 us | 1,699.9 |     - |     - |     - |       1 B |
 
 PpmWriter:
 |          Method |     Mean |     Error |    StdDev |    StdErr |      Min |       Q1 |   Median |       Q3 |      Max |  Op/s |    Gen 0 | Gen 1 | Gen 2 | Allocated |

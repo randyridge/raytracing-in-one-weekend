@@ -21,10 +21,6 @@ namespace RayTracing {
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static Vector3 ComputeColor(in Ray ray) {
-            var unitDirection = Vector3.Normalize(ray.Direction);
-            var t = 0.5f * (unitDirection.Y + 1.0f);
-            return (1.0f - t) * Vector3.One + t * new Vector3(0.5f, 0.7f, 1.0f);
-        }
+        private static Vector3 ComputeColor(in Ray ray) => Vector3.Lerp(Vector3.One, new Vector3(0.5f, 0.7f, 1.0f), 0.5f * (Vector3.Normalize(ray.Direction).Y + 1.0f));
     }
 }
