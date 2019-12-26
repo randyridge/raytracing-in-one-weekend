@@ -14,14 +14,13 @@ namespace RayTracing {
                 for(var i = 0; i < width; i++) {
                     var u = i / (float) width;
                     var v = j / (float) height;
-                    var color = ComputeColor(new Ray(origin, lowerLeftCorner + u * horizontal + v * vertical));
-                    frame.AddColor(Color.FromNormalizedFloats(color.X, color.Y, color.Z));
+                    frame.AddColor(ComputeColor(new Ray(origin, lowerLeftCorner + u * horizontal + v * vertical)));
                 }
             }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static Vector3 ComputeColor(in Ray ray) => IsSphereHit(new Vector3(0, 0, -1), 0.5f, ray) ? new Vector3(1, 0, 0) : Vector3.Lerp(Vector3.One, new Vector3(0.5f, 0.7f, 1.0f), 0.5f * (Vector3.Normalize(ray.Direction).Y + 1.0f));
+        private static Color ComputeColor(in Ray ray) => IsSphereHit(new Vector3(0, 0, -1), 0.5f, ray) ? NamedColors.Red : new Color(Vector3.Lerp(Vector3.One, new Vector3(0.5f, 0.7f, 1.0f), 0.5f * (Vector3.Normalize(ray.Direction).Y + 1.0f)));
 
         private static bool IsSphereHit(in Vector3 center, float radius, in Ray ray) {
             var oc = ray.Origin - center;

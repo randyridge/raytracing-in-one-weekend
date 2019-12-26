@@ -5,7 +5,7 @@
             var width = frame.Width;
             for(var j = height - 1; j >= 0; j--) {
                 for(var i = 0; i < width; i++) {
-                    frame.AddColor(Color.FromNormalizedFloats(i / (float) width, j / (float) height, 0.2f));
+                    frame.AddColor(new Color(i / (float) width, j / (float) height, 0.2f));
                 }
             }
         }

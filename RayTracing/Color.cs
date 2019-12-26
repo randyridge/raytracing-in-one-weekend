@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 
 namespace RayTracing {
@@ -7,6 +8,12 @@ namespace RayTracing {
             Red = red;
             Green = green;
             Blue = blue;
+        }
+
+        public Color(float red, float green, float blue) : this(ClampChannel(red), ClampChannel(green), ClampChannel(blue)) {
+        }
+
+        public Color(Vector3 vector3) : this(ClampChannel(vector3.X), ClampChannel(vector3.Y), ClampChannel(vector3.Z)) {
         }
 
         public byte Blue { get; }
@@ -22,9 +29,6 @@ namespace RayTracing {
             channel <= 0.0f ? (byte) 0
             : channel >= 1.0f ? (byte) 255
             : Math.Min((byte) (256.0f * channel), (byte) 255);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Color FromNormalizedFloats(float red, float green, float blue) => new Color(ClampChannel(red), ClampChannel(green), ClampChannel(blue));
 
         public static bool operator ==(Color left, Color right) => left.Equals(right);
 

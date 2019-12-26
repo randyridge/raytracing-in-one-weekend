@@ -1,6 +1,6 @@
-﻿using System;
-using Shouldly;
+﻿using Shouldly;
 using Xunit;
+
 // ReSharper disable EqualExpressionComparison
 
 namespace RayTracing {
@@ -25,6 +25,17 @@ namespace RayTracing {
 
             [Fact]
             public void sets_red() => NamedColors.Red.Red.ShouldBe((byte) 255);
+        }
+
+        public sealed class ConstructorFloats {
+            [Fact]
+            public void sets_blue() => new Color(0f, 0f, 1f).ShouldBe(NamedColors.Blue);
+
+            [Fact]
+            public void sets_green() => new Color(0f, 1f, 0f).ShouldBe(NamedColors.Green);
+
+            [Fact]
+            public void sets_red() => new Color(1f, 0f, 0f).ShouldBe(NamedColors.Red);
         }
 
         public sealed class Equality : ColorTester {
@@ -59,17 +70,6 @@ namespace RayTracing {
                 NamedColors.Green.Equals(NamedColors.Green).ShouldBeTrue();
                 NamedColors.Blue.Equals(NamedColors.Blue).ShouldBeTrue();
             }
-        }
-
-        public sealed class FromNormalizedFloats {
-            [Fact]
-            public void sets_blue() => Color.FromNormalizedFloats(0, 0, 1).ShouldBe(NamedColors.Blue);
-
-            [Fact]
-            public void sets_green() => Color.FromNormalizedFloats(0, 1, 0).ShouldBe(NamedColors.Green);
-
-            [Fact]
-            public void sets_red() => Color.FromNormalizedFloats(1, 0, 0).ShouldBe(NamedColors.Red);
         }
 
         public sealed class GetHashCodeTests : ColorTester {

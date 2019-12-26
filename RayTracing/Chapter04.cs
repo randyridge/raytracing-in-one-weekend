@@ -15,7 +15,7 @@ namespace RayTracing {
                     var u = i / (float) width;
                     var v = j / (float) height;
                     var color = ComputeColor(new Ray(origin, lowerLeftCorner + u * horizontal + v * vertical));
-                    frame.AddColor(Color.FromNormalizedFloats(color.X, color.Y, color.Z));
+                    frame.AddColor(new Color(color.X, color.Y, color.Z));
                 }
             }
         }
