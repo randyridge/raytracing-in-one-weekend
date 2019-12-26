@@ -7,7 +7,7 @@ namespace RayTracing {
 
         private static void Main() {
             var frame = new Frame(Width, Height);
-            Chapter02.FillFrame(frame);
+            Chapter04.FillFrame(frame);
             using var standardOut = Console.OpenStandardOutput();
             PpmWriter.Write(standardOut, frame);
         }
