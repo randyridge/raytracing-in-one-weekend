@@ -4,25 +4,27 @@ using System.Runtime.CompilerServices;
 
 namespace RayTracing {
     public static class Chapter07 {
+        private const int NumberOfSamples = 100;
+        private static readonly Camera Camera = new Camera();
+        private static readonly EntityList Entities = new EntityList(new List<IEntity> {
+            new Sphere(new Vector3(0, 0, -1), 0.5f),
+            new Sphere(new Vector3(0, -100.5f, -1), 100)
+        });
+
         public static void FillFrame(in Frame frame) {
             var height = frame.Height;
             var width = frame.Width;
-            var numberOfSamples = 100;
-            var entities = new EntityList(new List<IEntity> {
-                new Sphere(new Vector3(0, 0, -1), 0.5f),
-                new Sphere(new Vector3(0, -100.5f, -1), 100),
-            });
-            var camera = new Camera();
             for(var j = height - 1; j >= 0; j--) {
                 for(var i = 0; i < width; i++) {
                     var colorVector = Vector3.Zero;
-                    for(var sample = 0; sample < numberOfSamples; sample++) {
+                    for(var sample = 0; sample < NumberOfSamples; sample++) {
                         var u = (float) ((i + Random.NextDouble) / width);
                         var v = (float) ((j + Random.NextDouble) / height);
-                        var ray = camera.GetRay(u, v);
-                        colorVector += ComputeColor(ray, entities);
+                        var ray = Camera.GetRay(u, v);
+                        colorVector += ComputeColor(ray, Entities);
                     }
-                    colorVector /= numberOfSamples;
+
+                    colorVector /= NumberOfSamples;
                     frame.AddColor(new Color(colorVector));
                 }
             }
