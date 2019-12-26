@@ -7,15 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RayTracing", "RayTracing\Ra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AAD14BF5-1660-4E2D-B66B-9140C884FA67}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		.github\workflows\ci.yml = .github\workflows\ci.yml
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RayTracing.Tests", "RayTracing.Tests\RayTracing.Tests.csproj", "{1A92EE61-0EC5-4AE9-9A4F-71873BC7DA33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RayTracing.Tests", "RayTracing.Tests\RayTracing.Tests.csproj", "{1A92EE61-0EC5-4AE9-9A4F-71873BC7DA33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RayTracing.Benchmarks", "RayTracing.Benchmarks\RayTracing.Benchmarks.csproj", "{1B059633-BCE6-4F45-92A0-A4C9BD65EB04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RayTracing.Benchmarks", "RayTracing.Benchmarks\RayTracing.Benchmarks.csproj", "{1B059633-BCE6-4F45-92A0-A4C9BD65EB04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

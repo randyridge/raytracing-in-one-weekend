@@ -17,7 +17,7 @@ namespace RayTracing {
 
         public int Width { get; }
 
-        public void AddColor(Color color) {
+        public void AddColor(in Color color) {
             colors.Add(color);
         }
     }

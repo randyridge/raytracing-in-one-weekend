@@ -13,7 +13,6 @@ namespace RayTracing {
             var space = " ".AsSpan();
             var maxColor = "\n255\n".AsSpan();
             writer.Write(header);
-            writer.Write(space);
             writer.Write(frame.Width);
             writer.Write(space);
             writer.Write(frame.Height);

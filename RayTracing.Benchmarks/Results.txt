@@ -11,12 +11,7 @@ Jit=RyuJit  Runtime=.NET Core 3.1
 Chapter02:
 |              Method |     Mean |   Error |  StdDev |  StdErr |      Min |       Q1 |   Median |       Q3 |      Max |    Op/s | Gen 0 | Gen 1 | Gen 2 | Allocated |
 |-------------------- |---------:|--------:|--------:|--------:|---------:|---------:|---------:|---------:|---------:|--------:|------:|------:|------:|----------:|
-| Chapter02_FillFrame | 100.8 us | 1.24 us | 1.03 us | 0.29 us | 99.44 us | 100.2 us | 100.7 us | 101.1 us | 103.4 us | 9,922.0 |     - |     - |     - |         - |
-
-Chapter03:
-|              Method |     Mean |   Error |  StdDev |  StdErr |      Min |       Q1 |   Median |       Q3 |      Max |    Op/s | Gen 0 | Gen 1 | Gen 2 | Allocated |
-|-------------------- |---------:|--------:|--------:|--------:|---------:|---------:|---------:|---------:|---------:|--------:|------:|------:|------:|----------:|
-| Chapter03_FillFrame | 137.3 us | 2.59 us | 2.16 us | 0.60 us | 134.5 us | 135.5 us | 136.0 us | 139.4 us | 140.8 us | 7,283.9 |     - |     - |     - |         - |
+| Chapter02_FillFrame | 134.6 us | 1.33 us | 1.11 us | 0.31 us | 133.0 us | 134.0 us | 134.4 us | 135.2 us | 137.3 us | 7,428.7 |     - |     - |     - |         - |
 
 PpmWriter:
 |          Method |     Mean |     Error |    StdDev |    StdErr |      Min |       Q1 |   Median |       Q3 |      Max |  Op/s |    Gen 0 | Gen 1 | Gen 2 | Allocated |
