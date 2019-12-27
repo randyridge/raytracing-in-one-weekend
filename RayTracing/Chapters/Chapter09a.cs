@@ -8,7 +8,7 @@ namespace RayTracing.Chapters {
         private const int MaxDepth = 50;
         private const int NumberOfSamples = 100;
         private static readonly Camera Camera = new Camera();
-        private static readonly EntityList Entities = new EntityList(new List<IEntity> {
+        private static readonly HittableList Hittables = new HittableList(new List<IHittable> {
             new Sphere(new Vector3(0, 0, -1), 0.5f, new Lambertian(new Vector3(0.8f, 0.3f, 0.3f))),
             new Sphere(new Vector3(0, -100.5f, -1), 100, new Lambertian(new Vector3(0.8f, 0.8f, 0.0f))),
             new Sphere(new Vector3(1, 0, -1), 0.5f, new Metal(new Vector3(0.8f, 0.6f, 0.2f), 0)),
@@ -25,7 +25,7 @@ namespace RayTracing.Chapters {
                         var u = (float) ((i + Random.NextDouble) / width);
                         var v = (float) ((j + Random.NextDouble) / height);
                         var ray = Camera.GetRay(u, v);
-                        colorVector += ComputeColor(ray, Entities, 0);
+                        colorVector += ComputeColor(ray, Hittables, 0);
                     }
 
                     colorVector /= NumberOfSamples;
@@ -36,12 +36,10 @@ namespace RayTracing.Chapters {
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static Vector3 ComputeColor(in Ray ray, IEntity world, int depth) {
-            Hit? hit;
-            if((hit = world.Hit(ray, 0.001f, float.MaxValue)) != null) {
-                var rec = hit.Value;
+        private static Vector3 ComputeColor(in Ray ray, IHittable world, int depth) {
+            if(world.Hit(ray, 0.001f, float.MaxValue, out var rec)) {
                 if(depth < MaxDepth && rec.Material.Scatter(ray, rec, out var attenuation, out var scattered)) {
-                    return attenuation * ComputeColor(scattered, Entities, depth + 1);
+                    return attenuation * ComputeColor(scattered, Hittables, depth + 1);
                 }
                 return Vector3.Zero;
             }

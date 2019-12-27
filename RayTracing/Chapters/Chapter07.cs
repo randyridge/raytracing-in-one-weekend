@@ -6,7 +6,7 @@ namespace RayTracing.Chapters {
     public static class Chapter07 {
         private const int NumberOfSamples = 100;
         private static readonly Camera Camera = new Camera();
-        private static readonly EntityList Entities = new EntityList(new List<IEntity> {
+        private static readonly HittableList Hittables = new HittableList(new List<IHittable> {
             new Sphere(new Vector3(0, 0, -1), 0.5f, new Lambertian(new Vector3(0.8f, 0.3f, 0.3f))),
             new Sphere(new Vector3(0, -100.5f, -1), 100, new Lambertian(new Vector3(0.8f, 0.8f, 0.0f))),
         });
@@ -21,7 +21,7 @@ namespace RayTracing.Chapters {
                         var u = (float) ((i + Random.NextDouble) / width);
                         var v = (float) ((j + Random.NextDouble) / height);
                         var ray = Camera.GetRay(u, v);
-                        colorVector += ComputeColor(ray, Entities);
+                        colorVector += ComputeColor(ray, Hittables);
                     }
 
                     colorVector /= NumberOfSamples;
@@ -31,13 +31,12 @@ namespace RayTracing.Chapters {
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static Vector3 ComputeColor(in Ray ray, IEntity world) {
-            Hit? hit;
-            if((hit = world.Hit(ray, 0, float.MaxValue)) == null) {
+        private static Vector3 ComputeColor(in Ray ray, IHittable world) {
+            if(world.Hit(ray, 0, float.MaxValue, out var rec)) {
                 return Vector3.Lerp(Vector3.One, new Vector3(0.5f, 0.7f, 1), 0.5f * (Vector3.Normalize(ray.Direction).Y + 1));
             }
 
-            var normal = hit.Value.Normal;
+            var normal = rec.Normal;
             return 0.5f * new Vector3(normal.X + 1, normal.Y + 1, normal.Z + 1);
         }
     }

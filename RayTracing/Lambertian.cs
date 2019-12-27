@@ -11,10 +11,10 @@ namespace RayTracing {
 
         public bool Equals(Lambertian other) => Albedo.Equals(other.Albedo);
 
-        public bool Scatter(in Ray incoming, in Hit hit, out Vector3 attenuation, out Ray scattered) {
-            var target = hit.Position + hit.Normal + Random.InUnitSphere();
+        public bool Scatter(in Ray incoming, in HitRecord hitRecord, out Vector3 attenuation, out Ray scattered) {
+            var target = hitRecord.Position + hitRecord.Normal + Random.InUnitSphere();
             attenuation = Albedo;
-            scattered = new Ray(hit.Position, target - hit.Position);
+            scattered = new Ray(hitRecord.Position, target - hitRecord.Position);
             return true;
         }
 

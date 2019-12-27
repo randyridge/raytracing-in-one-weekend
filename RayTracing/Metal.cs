@@ -14,11 +14,11 @@ namespace RayTracing {
 
         public bool Equals(Metal other) => Albedo.Equals(other.Albedo) && Fuzziness.Equals(other.Fuzziness);
 
-        public bool Scatter(in Ray incoming, in Hit hit, out Vector3 attenuation, out Ray scattered) {
-            var reflected = Reflect(Vector3.Normalize(incoming.Direction), hit.Normal);
-            scattered = new Ray(hit.Position, reflected + Fuzziness * Random.InUnitSphere());
+        public bool Scatter(in Ray incoming, in HitRecord hitRecord, out Vector3 attenuation, out Ray scattered) {
+            var reflected = Reflect(Vector3.Normalize(incoming.Direction), hitRecord.Normal);
+            scattered = new Ray(hitRecord.Position, reflected + Fuzziness * Random.InUnitSphere());
             attenuation = Albedo;
-            return Vector3.Dot(scattered.Direction, hit.Normal) > 0;
+            return Vector3.Dot(scattered.Direction, hitRecord.Normal) > 0;
         }
 
         public static bool operator ==(Metal left, Metal right) => left.Equals(right);
