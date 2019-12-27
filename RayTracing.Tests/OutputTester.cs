@@ -25,6 +25,12 @@ namespace RayTracing {
             [Fact] // Chapter 07's image is a crop, so just use chapter 06's image.
             public void chapter07_matches() => CompareImages("img-1-06-2.jpg", "chapter07.ppm");
 
+            [Fact]
+            public void chapter08a_matches() => CompareImages("img-1-08-1.jpg", "chapter08a.ppm");
+
+            [Fact]
+            public void chapter08b_matches() => CompareImages("img-1-08-2.jpg", "chapter08b.ppm");
+
             private static long CalculateActualHash(string fileName) {
                 // TODO: ppm isn't included in windows libvips full, it looks like it needs to be configured to be built... :/
                 //ImagePipeline.FromFile(Common.GetOutputFilePath("chapter02.ppm")).Webp(new WebpOptions(100, 100, true)).ToBuffer(out var actual);

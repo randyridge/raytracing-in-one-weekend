@@ -15,7 +15,9 @@ Jit=RyuJit  Runtime=.NET Core 3.1
 |  Chapter05_FillFrame |     754.9 us |    14.16 us |    15.15 us |     3.57 us |     738.4 us |     745.2 us |     750.5 us |     760.1 us |     793.4 us | 1,324.614 |     - |     - |     - |         - |
 | Chapter06a_FillFrame |     897.9 us |    13.07 us |    11.59 us |     3.10 us |     868.4 us |     894.2 us |     897.9 us |     903.2 us |     919.8 us | 1,113.740 |     - |     - |     - |       1 B |
 | Chapter06b_FillFrame |   1,817.6 us |    57.45 us |    47.97 us |    13.30 us |   1,769.3 us |   1,790.2 us |   1,807.1 us |   1,824.4 us |   1,952.5 us |   550.176 |     - |     - |     - |     201 B |
-|  Chapter07_FillFrame | 200,030.9 us | 2,467.75 us | 2,308.34 us |   596.01 us | 197,588.3 us | 197,961.0 us | 199,305.8 us | 201,812.9 us | 204,381.9 us |     4.999 |     - |     - |     - |         - |
+|  Chapter07_FillFrame | 196,495.6 us | 1,731.17 us | 1,619.34 us |   418.11 us | 191,442.5 us | 196,236.8 us | 196,831.1 us | 197,537.2 us | 197,904.9 us |     5.089 |     - |     - |     - |         - |
+| Chapter08a_FillFrame | 534,803.0 us | 2,364.76 us | 2,096.30 us |   560.26 us | 530,904.9 us | 534,408.5 us | 535,583.6 us | 535,980.6 us | 537,187.2 us |     1.870 |     - |     - |     - |         - |
+| Chapter08b_FillFrame | 465,371.4 us | 4,697.36 us | 4,393.91 us | 1,134.50 us | 456,642.1 us | 461,955.1 us | 465,980.1 us | 469,029.3 us | 471,431.5 us |     2.149 |     - |     - |     - |         - |
 
 PpmWriter:
 |          Method |     Mean |     Error |    StdDev |    StdErr |      Min |       Q1 |   Median |       Q3 |      Max |  Op/s |    Gen 0 | Gen 1 | Gen 2 | Allocated |
