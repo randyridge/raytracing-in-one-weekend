@@ -2,7 +2,7 @@
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
-namespace RayTracing {
+namespace RayTracing.Chapters {
     public static class Chapter06a {
         public static void FillFrame(in Frame frame) {
             var height = frame.Height;

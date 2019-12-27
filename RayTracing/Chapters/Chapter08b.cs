@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
-namespace RayTracing {
+namespace RayTracing.Chapters {
     public static class Chapter08b {
         private const int MaxDepth = 50;
         private const int NumberOfSamples = 100;
         private static readonly Camera Camera = new Camera();
         private static readonly EntityList Entities = new EntityList(new List<IEntity> {
-            new Sphere(new Vector3(0, 0, -1), 0.5f),
-            new Sphere(new Vector3(0, -100.5f, -1), 100)
+            new Sphere(new Vector3(0, 0, -1), 0.5f, new Lambertian(new Vector3(0.8f, 0.3f, 0.3f))),
+            new Sphere(new Vector3(0, -100.5f, -1), 100, new Lambertian(new Vector3(0.8f, 0.8f, 0.0f))),
         });
 
         public static void FillFrame(in Frame frame) {

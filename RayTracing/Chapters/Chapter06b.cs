@@ -2,7 +2,7 @@
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
-namespace RayTracing {
+namespace RayTracing.Chapters {
     public static class Chapter06b {
         public static void FillFrame(in Frame frame) {
             var height = frame.Height;
@@ -12,8 +12,8 @@ namespace RayTracing {
             var vertical = new Vector3(0, 2f, 0);
             var origin = Vector3.Zero;
             var spheres = new List<IEntity> {
-                new Sphere(new Vector3(0, 0, -1), 0.5f),
-                new Sphere(new Vector3(0, -100.5f, -1), 100),
+                new Sphere(new Vector3(0, 0, -1), 0.5f, new Lambertian(new Vector3(0.8f, 0.3f, 0.3f))),
+                new Sphere(new Vector3(0, -100.5f, -1), 100, new Lambertian(new Vector3(0.8f, 0.8f, 0.0f))),
             };
             var entities = new EntityList(spheres);
             for(var j = height - 1; j >= 0; j--) {

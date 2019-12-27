@@ -18,7 +18,7 @@ namespace RayTracing {
                     continue;
                 }
 
-                closest = testHit.Value.T;
+                closest = testHit.Value.Time;
                 hit = testHit;
             }
             return hit;

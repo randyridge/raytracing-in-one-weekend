@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
+using RayTracing.Chapters;
 using SharpSharp.Benchmarks;
 
 namespace RayTracing {
@@ -29,5 +30,11 @@ namespace RayTracing {
 
         [Benchmark]
         public void Chapter08b_FillFrame() => Chapter08b.FillFrame(frame);
+
+        [Benchmark]
+        public void Chapter09a_FillFrame() => Chapter09a.FillFrame(frame);
+
+        [Benchmark]
+        public void Chapter09b_FillFrame() => Chapter09b.FillFrame(frame);
     }
 }

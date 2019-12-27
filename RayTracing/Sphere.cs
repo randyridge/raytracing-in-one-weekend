@@ -3,12 +3,15 @@ using System.Numerics;
 
 namespace RayTracing {
     public sealed class Sphere : IEntity {
-        public Sphere(Vector3 center, float radius) {
+        public Sphere(Vector3 center, float radius, IMaterial material) {
             Center = center;
             Radius = radius;
+            Material = material;
         }
 
         public Vector3 Center { get; }
+
+        public IMaterial Material { get; }
 
         public float Radius { get; }
 
@@ -25,12 +28,12 @@ namespace RayTracing {
             var temp = (-b - (float) Math.Sqrt(discriminant)) / a;
             var pointAt = ray.PointAt(temp);
             if(temp < maximum && temp > minimum) {
-                return new Hit(temp, pointAt, (pointAt - Center) / Radius);
+                return new Hit(temp, pointAt, (pointAt - Center) / Radius, Material);
             }
 
             temp = (-b + (float) Math.Sqrt(discriminant)) / a;
             if(temp < maximum && temp > minimum) {
-                return new Hit(temp, pointAt, (pointAt - Center) / Radius);
+                return new Hit(temp, pointAt, (pointAt - Center) / Radius, Material);
             }
 
             return null;

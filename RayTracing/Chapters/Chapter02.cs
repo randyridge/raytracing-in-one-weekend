@@ -1,4 +1,4 @@
-﻿namespace RayTracing {
+﻿namespace RayTracing.Chapters {
     public static class Chapter02 {
         public static void FillFrame(in Frame frame) {
             var height = frame.Height;
