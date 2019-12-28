@@ -54,5 +54,8 @@ namespace RayTracing {
 
         [Benchmark]
         public void Chapter12_FillFrame() => Chapter12.FillFrame(frame);
+
+        [Benchmark]
+        public void Chapter13_FillFrame() => Chapter13.FillFrame(frame);
     }
 }
