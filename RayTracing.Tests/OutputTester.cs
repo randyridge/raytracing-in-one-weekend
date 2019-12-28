@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using NetVips;
 using SharpSharp;
 using Shouldly;
 using Xunit;
@@ -55,24 +54,12 @@ namespace RayTracing {
             [Fact]
             public void chapter12_matches() => CompareImages("img-1-12-1.jpg", "chapter12.ppm");
 
-            [Fact(Skip="random")]
+            [Fact(Skip = "random")]
             public void chapter13_matches() => CompareImages("img-1-13-1.jpg", "chapter13.ppm");
 
             private static long CalculateActualHash(string fileName) {
-                // TODO: ppm isn't included in windows libvips full, it looks like it needs to be configured to be built... :/
-                //ImagePipeline.FromFile(Common.GetOutputFilePath("chapter02.ppm")).Webp(new WebpOptions(100, 100, true)).ToBuffer(out var actual);
                 using var fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-                var frame = PpmReader.Read(fileStream);
-                var buffer = new byte[frame.Width * frame.Height * 3];
-                var position = 0;
-                foreach(var color in frame.Colors) {
-                    buffer[position] = color.Red;
-                    buffer[position + 1] = color.Green;
-                    buffer[position + 2] = color.Blue;
-                    position += 3;
-                }
-
-                using var image = Image.NewFromMemory(buffer, 200, 100, 3, "uchar");
+                using var image = PpmReader.ImageFromPpm(fileStream);
                 ImagePipeline.FromImage(image).Webp(new WebpOptions(100, 100, true)).ToBuffer(out var actual);
                 return DifferenceHash.HashLong(actual);
             }

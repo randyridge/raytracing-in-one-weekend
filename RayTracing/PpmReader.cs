@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using System.Text;
+using NetVips;
 using RandyRidge.Common;
 
 namespace RayTracing {
@@ -35,6 +36,22 @@ namespace RayTracing {
             }
 
             return frame;
+        }
+
+        internal static Image ImageFromPpm(Stream stream) {
+            // TODO: ppm isn't included in windows libvips full, it looks like it needs to be configured to be built... :/
+            //ImagePipeline.FromFile(Common.GetOutputFilePath("chapter02.ppm")).Webp(new WebpOptions(100, 100, true)).ToBuffer(out var actual);
+            var frame = Read(stream);
+            var buffer = new byte[frame.Width * frame.Height * 3];
+            var position = 0;
+            foreach(var color in frame.Colors) {
+                buffer[position] = color.Red;
+                buffer[position + 1] = color.Green;
+                buffer[position + 2] = color.Blue;
+                position += 3;
+            }
+
+            return Image.NewFromMemory(buffer, frame.Width, frame.Height, 3, "uchar");
         }
     }
 }

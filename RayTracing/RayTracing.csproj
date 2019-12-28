@@ -23,6 +23,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="NetVips.Native" Version="8.8.3" />
     <PackageReference Include="RandyRidge.Common" Version="0.1.18" />
+    <PackageReference Include="SharpSharp" Version="0.1.6" />
   </ItemGroup>
 </Project>
